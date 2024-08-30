@@ -78,9 +78,10 @@ final class ParcelService extends BaseService
      * Adds parcels
      * @param Auth   $auth   Instance of the Auth object
      * @param array $parcels Array containing instances of MarkoSirec\GlsItaly\SDK\Models\Parcel
+     * @param int $generaPdf InfoLabel type
      * @return AddParcelResponse
      */
-    public static function add(Auth $auth, array $parcels): array
+    public static function add(Auth $auth, array $parcels, int $generaPdf = 4): array
     {
         $authAdapter = new AuthAdapter($auth);
         $preparedParcels = [];
@@ -88,7 +89,7 @@ final class ParcelService extends BaseService
         $i = 0;
 
         foreach ($parcels as $parcel) {
-            $parcelAdapter = new ParcelAdapter($auth, $parcel);
+            $parcelAdapter = new ParcelAdapter($auth, $parcel, $generaPdf);
             $xmlData['Parcel__'.$i] = (array)$parcelAdapter->get();
             $i++;
         }

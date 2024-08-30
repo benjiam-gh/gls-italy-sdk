@@ -30,6 +30,7 @@ final class ParcelAdapter extends BaseAdapter
 {
     private $parcel;
     private $auth;
+    private $generaPdf;
 
     const PARCEL_STATUS_MAPPING = [
         'IN ATTESA DI CHIUSURA.' => 'waiting',
@@ -245,11 +246,13 @@ final class ParcelAdapter extends BaseAdapter
      * Class construct
      * @param Auth   $auth   An instance of the Auth model
      * @param Parcel $parcel An instance of the Parcel model
+     * @param int $generaPdf InfoLabel type
      */
-    public function __construct(Auth $auth, Parcel $parcel)
+    public function __construct(Auth $auth, Parcel $parcel, int $generaPdf = 4)
     {
         $this->parcel = $parcel;
         $this->auth = $auth;
+        $this->generaPdf = $generaPdf;
     }
 
     /**
@@ -277,8 +280,7 @@ final class ParcelAdapter extends BaseAdapter
             }
         }
 
-        // automatically generate the PDF label upon request
-        $requestData->GeneraPdf = 4;
+        $requestData->GeneraPdf = $this->generaPdf;
 
         return $requestData;
     }
