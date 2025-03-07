@@ -239,6 +239,16 @@ final class ParcelAdapter extends BaseAdapter
                 'xmlElement' => 'TelefonoDestinatario',
                 'maxLength' => 16
             ],
+            [
+                'getter' => 'getShopId',
+                'xmlElement' => 'SHOP_ID',
+                'maxLength' => 16
+            ],
+            [
+                'getter' => 'getPartnerShopId',
+                'xmlElement' => 'PARTNER_SHOP_ID',
+                'maxLength' => 16
+            ],
         ]
     ];
 

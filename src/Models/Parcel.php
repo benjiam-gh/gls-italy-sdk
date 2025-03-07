@@ -457,6 +457,19 @@ final class Parcel extends BaseModel
     private $referencePersonPhoneNumber = null;
 
     /**
+     *
+     * @var string
+     */
+    private $shopId = null;
+
+    /**
+     *
+     * @var string
+     */
+    private $partnerShopId = null;
+
+
+    /**
      * Status setter
      * @param string $status
      */
@@ -1106,5 +1119,45 @@ final class Parcel extends BaseModel
     public function setReferencePersonPhoneNumber(?string $referencePersonPhoneNumber): void
     {
         $this->referencePersonPhoneNumber = $referencePersonPhoneNumber;
+    }
+
+    /**
+     * Shop Delivery Service
+     *
+     * @return string
+     */
+    public function getShopId(): ?string
+    {
+        return $this->shopId;
+    }
+
+    /**
+     * Shop Delivery Service setter
+     *
+     * @param ?string $shopId
+     */
+    public function setShopId(?string $shopId): void
+    {
+        $this->shopId = $shopId;
+    }
+
+    /**
+     * Shop Delivery Service
+     *
+     * @return string
+     */
+    public function getPartnerShopId(): ?string
+    {
+        return $this->partnerShopId;
+    }
+
+    /**
+     * Shop Delivery Service setter
+     *
+     * @param ?string $partnerShopId
+     */
+    public function setPartnerShopId(?string $partnerShopId): void
+    {
+        $this->partnerShopId = $partnerShopId;
     }
 }
