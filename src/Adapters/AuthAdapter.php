@@ -44,7 +44,7 @@ final class AuthAdapter extends BaseAdapter
 
         $requestData->SedeGls = $this->formatStringForXml($this->auth->getBranchId(), 2);
         $requestData->CodiceClienteGls = $this->formatStringForXml($this->auth->getClientId(), 6);
-        $requestData->PasswordClienteGls = $this->formatStringForXml($this->auth->getPassword(), 10);
+        $requestData->PasswordClienteGls = $this->formatStringForXml($this->auth->getPassword(), 13);
         
         return $requestData;
     }
