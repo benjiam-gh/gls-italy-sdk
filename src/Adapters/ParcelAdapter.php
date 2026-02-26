@@ -398,7 +398,12 @@ final class ParcelAdapter extends BaseAdapter
             $response = new AddParcelResponse();
 
             if (!isset($parcel->NumeroSpedizione)) {
-                $response->setError('Unknown error. The parcel id was not returned.');
+                $errorMessage = "The parcel id was not returned. ";
+                if(isset($parcel->NoteSpedizione) && !empty($parcel->NoteSpedizione))
+                    $errorMessage .= ("Error: " . $parcel->NoteSpedizione);
+                else
+                    $errorMessage .= ("Unknown error.");
+                $response->setError($errorMessage);
             } elseif ($parcel->NumeroSpedizione == '999999999') {
                 $response->setError('Please make sure you defined all the parcel parameters correctly.');
             } else {
